@@ -1,0 +1,39 @@
+<!-- views/locations.ejs -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Адреса магазинов</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <main>
+        <h1>Адреса наших магазинов</h1>
+        <div id="map"></div>
+        <ul>
+            <li>Магазин 1: Москва, ул. Тверская, 1</li>
+            <li>Магазин 2: Санкт-Петербург, ул. Невский, 2</li>
+            <li>Магазин 3: Новосибирск, ул. Красный, 3</li>
+        </ul>
+    </main>
+    <footer>
+        <p>Контактная информация</p>
+    </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script>
+        function initMap() {
+            var location = {lat: 55.7558, lng: 37.6173};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
+</body>
+</html>

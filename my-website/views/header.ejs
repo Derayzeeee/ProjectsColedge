@@ -1,0 +1,17 @@
+<header>
+    <nav>
+        <ul>
+            <li><a href="/index">Главная</a></li>
+            <li><a href="/catalog">Каталог</a></li>
+            <% if (!user) { %>
+                <li><a href="/auth">Авторизация</a></li>
+                <li><a href="/register">Регистрация</a></li>
+            <% } else { %>
+                <li><a href="/favorites">Избранное</a></li>
+                <li><a href="/logout">Выйти</a></li>
+            <% } %>
+            <li><a href="/locations">Адреса магазинов</a></li>
+        </ul>
+    </nav>
+    <!-- views/header.ejs -->
+</header>

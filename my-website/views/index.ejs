@@ -1,0 +1,24 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <main>
+        <h1>Добро пожаловать на наш сайт!</h1>
+        <p>Здесь вы найдете все, что вам нужно.</p>
+        <% if (user) { %>
+            <p>Привет, <%= user.username %>!</p>
+        <% } else { %>
+            <p>Пожалуйста, <a href="/auth">войдите</a> или <a href="/register">зарегистрируйтесь</a>.</p>
+        <% } %>
+    </main>
+    <footer>
+        <p>Контактная информация</p>
+    </footer>
+</body>
+</html>

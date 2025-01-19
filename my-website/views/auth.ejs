@@ -1,0 +1,28 @@
+<!-- views/auth.ejs -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <main>
+        <h1>Авторизация</h1>
+        <% if (message) { %>
+            <p style="color: red;"><%= message %></p>
+        <% } %>
+        <form action="/auth" method="post">
+            <label for="username">Логин:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Войти</button>
+        </form>
+    </main>
+    <footer>
+        <p>Контактная информация</p>
+    </footer>
+</body>
+</html>

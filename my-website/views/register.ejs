@@ -1,0 +1,28 @@
+<!-- views/register.ejs -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <main>
+        <h1>Регистрация</h1>
+        <% if (message) { %>
+            <p style="color: red;"><%= message %></p>
+        <% } %>
+        <form action="/register" method="post">
+            <label for="username">Логин:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </main>
+    <footer>
+        <p>Контактная информация</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!-- views/favorites.ejs -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Избранное</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <main>
+        <h1>Избранное</h1>
+        <% if (products.length === 0) { %>
+            <p>У вас нет избранных товаров.</p>
+        <% } else { %>
+            <div class="product-list">
+                <% products.forEach(function(product) { %>
+                    <div class="product-card">
+                        <img src="<%= product.image %>" alt="<%= product.name %>">
+                        <h3><%= product.name %></h3>
+                        <p><%= product.description %></p>
+                        <span>Цена: <%= product.price %> руб.</span>
+                        <form action="/remove_from_favorites" method="post" style="margin-top: 10px;">
+                            <input type="hidden" name="productId" value="<%= product.id %>">
+                            <button type="submit">Удалить из избранного</button>
+                        </form>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </main>
+    <%- include('footer.ejs') %>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!-- views/product.ejs -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title><%= product.name %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <main>
+        <div class="product-detail">
+            <div class="product-images">
+                <img src="<%= product.image %>" alt="<%= product.name %>" class="main-image">
+                <div class="thumbnails">
+                    <% additionalImages.forEach(function(image) { %>
+                        <img src="<%= image %>" alt="<%= product.name %>">
+                    <% }) %>
+                </div>
+            </div>
+            <div class="product-info">
+                <h1><%= product.name %></h1>
+                <p><%= product.description %></p>
+                <h2>Цена: <%= product.price %> руб.</h2>
+                <% if (user) { %>
+                    <form action="/add_to_favorites" method="post">
+                        <input type="hidden" name="productId" value="<%= product.id %>">
+                        <button type="submit">Добавить в избранное</button>
+                    </form>
+                <% } else { %>
+                    <p>Чтобы добавить в избранное, <a href="/auth">войдите</a> или <a href="/register">зарегистрируйтесь</a>.</p>
+                <% } %>
+            </div>
+        </div>
+    </main>
+    <%- include('footer.ejs') %>
+    <script>
+        // Уведомление о добавлении в избранное
+        /*<% if (user) { %>
+            <% if (message === 'Товар добавлен в избранное.') { %>
+                alert('Товар добавлен в избранное.');
+            <% } else if (message === 'Товар уже в избранном.') { %>
+                alert('Товар уже в избранном.');
+            <% } %>
+        <% } %>*/
+    </script>
+</body>
+</html>

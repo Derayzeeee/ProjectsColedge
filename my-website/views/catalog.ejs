@@ -1,0 +1,28 @@
+<!-- views/catalog.ejs -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <main>
+        <h1>Каталог товаров</h1>
+        <div class="product-list">
+            <% products.forEach(function(product) { %>
+                <a href="/product/<%= product.id %>" class="product-card-link">
+                    <div class="product-card">
+                        <img src="<%= product.image %>" alt="<%= product.name %>">
+                        <h3><%= product.name %></h3>
+                        <p><%= product.description %></p>
+                        <span>Цена: <%= product.price %> руб.</span>
+                    </div>
+                </a>
+            <% }) %>
+        </div>
+    </main>
+    <%- include('footer.ejs') %>
+</body>
+</html>
