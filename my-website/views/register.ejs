@@ -1,21 +1,29 @@
-<!-- views/register.ejs -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
     <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img class="logo" src="https://shop.panda.by/files/template/logo_mob_black.png" alt="Panda Logo">
+            </div>
+            <ul class="nav-links">
                 <li><a href="/index">Главная</a></li>
                 <li><a href="/catalog">Каталог</a></li>
                 <li><a href="/auth">Авторизация</a></li>
                 <li><a href="/register">Регистрация</a></li>        
                 <li><a href="/locations">Адреса магазинов</a></li>
             </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
     <main>
@@ -25,12 +33,23 @@
         <% } %>
         <form action="/register" method="post">
             <label for="username">Логин:</label>
-            <input type="text" id="username" name="username" required>
+            <input class="inputs" type="text" id="username" name="username" required>
             <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Зарегистрироваться</button>
+            <input class="inputs" type="password" id="password" name="password" required>
+            <button class="authregbutton" type="submit">Зарегистрироваться</button>
         </form>
     </main>
     <%- include('footer.ejs') %>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+    
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>

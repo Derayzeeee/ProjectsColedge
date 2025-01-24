@@ -1,6 +1,10 @@
 <header>
-    <nav>
-        <ul>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:wght@400 ;700&display=swap" rel="stylesheet">
+    <nav class="navbar">
+        <div class="logo-container">
+            <img class="logo" src="https://shop.panda.by/files/template/logo_mob_black.png" alt="Panda Logo">
+        </div>
+        <ul class="nav-links">
             <li><a href="/index">Главная</a></li>
             <li><a href="/catalog">Каталог</a></li>
             <% if (!user) { %>
@@ -12,5 +16,21 @@
             <% } %>
             <li><a href="/locations">Адреса магазинов</a></li>
         </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 </header>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    });
+</script>

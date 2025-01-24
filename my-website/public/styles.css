@@ -8,26 +8,145 @@ body {
 }
 
 header {
-    background-color: #333;
+    height: 50px;
+    background-color: #33333300;
     color: #fff;
     padding: 10px 0;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-right: 400px;
+    padding: 0 20px;
 }
 
-nav ul li {
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 15px;
+}
+
+.nav-links li {
     margin: 0 15px;
 }
 
-nav ul li a {
+.nav-links li a {
+    
+    color: #000000;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.catalogbutton{
+    color: rgb(255, 255, 255);
+    background-color: #000;
+    border-color: #33333300;
+    border-radius: 15px;
+    height: 35px;
+    width: 230px;
+    margin-top: 70px
+}
+
+.indexbody{
+    background-image: url('https://www.panda.by/tmp/files/import/Y3E1ecq5yuQnL01CdgRDCgRXL0!---!C9gRHY0GchMTkyMCE5NjAhY3V0IXllcw==.jpg');
+}
+
+.nav-links li a:hover {
+    color: #ddd;
+}
+
+.hamburger {
+    padding-left: 670px;
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.authregbutton{
+    color: #ffffff;
+    background-color: #000;
+    border-radius: 6px;
+}
+
+.inputs{
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #000000;
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        height: 100vh;
+        top: 60px;
+        background-color: rgba(255, 255, 255, 0.405);
+        border-radius: 15px;
+        flex-direction: column;
+        align-items: center;
+        width: 200px;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        color: #ffffff;
+        margin: 20px 0;
+    }
+    
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links.active {
+        background-color: rgba(255, 255, 255, 0.405);
+        border-radius: 15px;
+        transform: translateX(0);
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    .logo{
+    align-items: start;
+    height: 50px;
+    width: auto;
+    position: absolute;
+    left: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
     color: #fff;
     text-decoration: none;
+}
 }
 
 main {
@@ -45,25 +164,70 @@ main {
 }
 
 .product-card {
-    border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
     width: 200px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-card h3 {
+    text-decoration: none;
 }
 
 .product-card img {
     width: 100%;
 }
 
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .product-image {
+        height: 150px;
+    }
+
+    .product-name {
+        font-size: 1.3em;
+    }
+
+    .product-price {
+        font-size: 1.1em;
+    }
+}
+
 footer {
-    background-color: #333;
+    background-color: #000000;
     color: #fff;
     text-align: center;
     padding: 10px 0;
 }
 
-/*Стили карточек*/
 .product-detail {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     margin: 20px;
 }
@@ -74,13 +238,14 @@ footer {
 }
 
 .main-image {
-    width: 100%;
+    width: 290px;
     height: auto;
+    margin-right: 600px;
 }
 
 .thumbnails {
     display: flex;
-    justify-content: space-between;
+    gap: 35px;
     margin-top: 10px;
 }
 
@@ -99,6 +264,7 @@ footer {
 }
 
 .product-info p {
+    text-decoration: none;
     font-size: 1.2em;
     margin-bottom: 20px;
 }
@@ -126,4 +292,16 @@ footer {
 
 .thumbnails img:hover {
     border: 2px solid #000;
+}
+
+.logo{
+    align-items: start;
+    height: 50px;
+    width: auto;
+    position: absolute;
+    left: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
 }
