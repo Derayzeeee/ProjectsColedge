@@ -7,7 +7,17 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <%- include('header.ejs') %>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/index">Главная</a></li>
+                <li><a href="/catalog">Каталог</a></li>
+                <li><a href="/auth">Авторизация</a></li>
+                <li><a href="/register">Регистрация</a></li>        
+                <li><a href="/locations">Адреса магазинов</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <h1>Регистрация</h1>
         <% if (message) { %>
@@ -21,8 +31,6 @@
             <button type="submit">Зарегистрироваться</button>
         </form>
     </main>
-    <footer>
-        <p>Контактная информация</p>
-    </footer>
+    <%- include('footer.ejs') %>
 </body>
 </html>

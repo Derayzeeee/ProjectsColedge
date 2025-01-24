@@ -1,24 +1,18 @@
-<!-- views/index.ejs -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Главная</title>
     <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <%- include('header.ejs') %>
     <main>
         <h1>Добро пожаловать на наш сайт!</h1>
-        <p>Здесь вы найдете все, что вам нужно.</p>
-        <% if (user) { %>
-            <p>Привет, <%= user.username %>!</p>
-        <% } else { %>
-            <p>Пожалуйста, <a href="/auth">войдите</a> или <a href="/register">зарегистрируйтесь</a>.</p>
-        <% } %>
+        <p>Мы предлагаем широкий ассортимент товаров для вашего удобства.</p>
+        <a href="/catalog"><button>Перейти в каталог</button></a>
     </main>
-    <footer>
-        <p>Контактная информация</p>
-    </footer>
+    <%- include('footer.ejs') %>
 </body>
 </html>
